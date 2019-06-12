@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons"; // 6.2.2
 import {
@@ -17,6 +18,8 @@ import ProviderServices from "./ProviderServices";
   }
 }); */
 
+
+// Ref Link : https://reactnavigation.org/docs/en/tab-based-navigation.html#customizing-the-appearance
 const getTabBarIcon = (navigation, focused, tintColor) => {
   const { routeName } = navigation.state;
   let IconComponent = Ionicons;
@@ -39,7 +42,10 @@ export default createBottomTabNavigator(
     Services: { screen: ProviderServices }
   },
   {
-   
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) =>
+        getTabBarIcon(navigation, focused, tintColor)
+    }),
     tabBarOptions: {
       initialRouteName: "Profile",
       activeTintColor: "#fff",
