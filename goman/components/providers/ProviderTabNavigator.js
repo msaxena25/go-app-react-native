@@ -1,12 +1,9 @@
-import * as React from "react";
-import { Platform } from "react-native";
-import { Ionicons } from "@expo/vector-icons"; // 6.2.2
-import {
-  createBottomTabNavigator,
-  createStackNavigator
-} from "react-navigation";
-import ProviderProfile from "./provider-profile";
-import ProviderServices from "./ProviderServices";
+import { Ionicons } from '@expo/vector-icons';
+import * as React from 'react';
+import { createBottomTabNavigator } from 'react-navigation';
+
+import ProviderProfile from './ProviderProfile';
+import ProviderServices from './ProviderServices';
 
 /* const profileStack = createStackNavigator({
   Profile: {
