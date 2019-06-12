@@ -1,28 +1,24 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import ProviderProfile from "./components/providers/provider-profile";
-import { Provider as PaperProvider, DefaultTheme } from "react-native-paper";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
-
+import ProviderAppNavigator from './components/providers/ProviderAppNavigator';
 
 const theme = {
   ...DefaultTheme,
   roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#3498db',
-    accent: '#f1c40f',
+    primary: "#3498db",
+    accent: "#f1c40f"
   }
 };
 
-
 export default function App() {
   return (
-    
-      <PaperProvider theme={theme}>
-        <ProviderProfile />
-      </PaperProvider>
-     
+    <PaperProvider theme={theme}>
+      <ProviderAppNavigator />
+    </PaperProvider>
   );
 }
 

@@ -17,8 +17,8 @@ export default class ProviderProfile extends React.Component {
     return (
       <View>
         <Appbar.Header>
-          <Appbar.BackAction onPress={this._goBack} />
-          <Appbar.Content title="Title" subtitle="Subtitle" />
+          {/* <Appbar.BackAction onPress={this._goBack} /> */}
+          <Appbar.Content title="My Profile" subtitle="" />
           <Appbar.Action icon="search" onPress={this._onSearch} />
           <Appbar.Action icon="more-vert" onPress={this._onMore} />
         </Appbar.Header>
