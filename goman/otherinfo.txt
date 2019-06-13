@@ -1,0 +1,20 @@
+
+"render-if": "^0.1.1"
+import renderIf from "render-if";
+
+  {renderIf(this.isEdit)(
+          <FAB
+            style={styles.fab}
+            small
+            icon="save"
+            onPress={() => console.log("Pressed")}
+          />
+        )}
+        {renderIf(!this.isEdit)(
+          <FAB
+            style={styles.fab}
+            small
+            icon="edit"
+            onPress={() => this.onEdit()}
+          />
+        )} 

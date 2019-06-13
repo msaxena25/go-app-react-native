@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from 'react-navigation';
 
 import ProviderProfile from './ProviderProfile';
 import ProviderServices from './ProviderServices';
+import Colors from '../../shared/constants/Colors';
 
 /* const profileStack = createStackNavigator({
   Profile: {
@@ -48,7 +49,7 @@ export default createBottomTabNavigator(
       activeTintColor: "#fff",
       inactiveTintColor: "#ddd",
       style: {
-        backgroundColor: "#4d535e"
+        backgroundColor: Colors.tabBar
       },
       labelStyle: {
         fontSize: 12

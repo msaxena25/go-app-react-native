@@ -1,9 +1,11 @@
 import * as React from "react";
 import { StyleSheet, View } from "react-native";
 import { TextInput, FAB, Appbar, Text } from "react-native-paper";
-
+import { Toast } from "../../shared/components/Toast";
+import Colors from "../../shared/constants/Colors";
 
 export default class ProviderProfile extends React.Component {
+  toast = new Toast();
   state = {
     text: "",
     isEdit: false
@@ -15,6 +17,7 @@ export default class ProviderProfile extends React.Component {
 
   onSave = () => {
     this.setState({ isEdit: false });
+    this.toast.showToast();
   };
 
   _goBack = () => console.log("Went back");
@@ -26,21 +29,11 @@ export default class ProviderProfile extends React.Component {
   renderFabBtn = () => {
     if (this.state.isEdit) {
       return (
-        <FAB
-          style={styles.fab}
-          small
-          icon="save"
-          onPress={() => this.onSave()}
-        />
+        <FAB style={styles.fab} icon="save" onPress={() => this.onSave()} />
       );
     } else {
       return (
-        <FAB
-          style={styles.fab}
-          small
-          icon="edit"
-          onPress={() => this.onEdit()}
-        />
+        <FAB style={styles.fab} icon="edit" onPress={() => this.onEdit()} />
       );
     }
   };
@@ -48,7 +41,7 @@ export default class ProviderProfile extends React.Component {
   render() {
     return (
       <View style={styles.parent}>
-        <Appbar.Header>
+        <Appbar.Header style={styles.header}>
           {/* <Appbar.BackAction onPress={this._goBack} /> */}
           <Appbar.Content title="My Profile" subtitle="" />
           <Appbar.Action icon="search" onPress={this._onSearch} />
@@ -95,9 +88,12 @@ export default class ProviderProfile extends React.Component {
 
 const styles = StyleSheet.create({
   parent: { height: "100%" },
+  header: {
+    backgroundColor: Colors.tabBar
+  },
   container: {
     padding: 10,
-    backgroundColor: "#ffffff",
+    backgroundColor: "white",
     justifyContent: "center"
   },
   inputField: {
@@ -107,6 +103,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     margin: 20,
     right: 0,
-    bottom: 0
+    bottom: 0,
+    backgroundColor: Colors.fabBackGround
   }
 });
