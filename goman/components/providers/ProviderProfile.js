@@ -2,9 +2,19 @@ import * as React from "react";
 import { StyleSheet, View } from "react-native";
 import { TextInput, FAB, Appbar, Text } from "react-native-paper";
 
+
 export default class ProviderProfile extends React.Component {
   state = {
-    text: ""
+    text: "",
+    isEdit: false
+  };
+
+  onEdit = () => {
+    this.setState({ isEdit: true });
+  };
+
+  onSave = () => {
+    this.setState({ isEdit: false });
   };
 
   _goBack = () => console.log("Went back");
@@ -12,6 +22,28 @@ export default class ProviderProfile extends React.Component {
   _onSearch = () => console.log("Searching");
 
   _onMore = () => console.log("Shown more");
+
+  renderFabBtn = () => {
+    if (this.state.isEdit) {
+      return (
+        <FAB
+          style={styles.fab}
+          small
+          icon="save"
+          onPress={() => this.onSave()}
+        />
+      );
+    } else {
+      return (
+        <FAB
+          style={styles.fab}
+          small
+          icon="edit"
+          onPress={() => this.onEdit()}
+        />
+      );
+    }
+  };
 
   render() {
     return (
@@ -22,7 +54,6 @@ export default class ProviderProfile extends React.Component {
           <Appbar.Action icon="search" onPress={this._onSearch} />
           <Appbar.Action icon="more-vert" onPress={this._onMore} />
         </Appbar.Header>
-
         <View style={styles.container}>
           <Text>Register</Text>
           <TextInput
@@ -56,24 +87,18 @@ export default class ProviderProfile extends React.Component {
             onChangeText={text => this.setState({ text })}
           />
         </View>
-        <FAB
-        style={styles.fab}
-        small
-        icon="edit"
-        onPress={() => console.log("Pressed")}
-      />
+        {this.renderFabBtn()}
       </View>
-     
     );
   }
 }
 
 const styles = StyleSheet.create({
-  parent: {height: '100%'},
+  parent: { height: "100%" },
   container: {
     padding: 10,
     backgroundColor: "#ffffff",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   inputField: {
     backgroundColor: "white"
