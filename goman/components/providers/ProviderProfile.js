@@ -15,7 +15,7 @@ export default class ProviderProfile extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.parent}>
         <Appbar.Header>
           {/* <Appbar.BackAction onPress={this._goBack} /> */}
           <Appbar.Content title="My Profile" subtitle="" />
@@ -56,27 +56,31 @@ export default class ProviderProfile extends React.Component {
             onChangeText={text => this.setState({ text })}
           />
         </View>
+        <FAB
+        style={styles.fab}
+        small
+        icon="edit"
+        onPress={() => console.log("Pressed")}
+      />
       </View>
+     
     );
   }
 }
 
 const styles = StyleSheet.create({
-  parent: {},
+  parent: {height: '100%'},
   container: {
-    marginTop: "20%",
     padding: 10,
     backgroundColor: "#ffffff",
-    position: "absolute",
     justifyContent: "center",
-    width: "100%"
   },
   inputField: {
     backgroundColor: "white"
   },
   fab: {
     position: "absolute",
-    margin: 16,
+    margin: 20,
     right: 0,
     bottom: 0
   }
