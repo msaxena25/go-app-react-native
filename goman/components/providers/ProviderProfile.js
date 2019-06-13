@@ -3,12 +3,15 @@ import { StyleSheet, View } from "react-native";
 import { TextInput, FAB, Appbar, Text } from "react-native-paper";
 import { Toast } from "../../shared/components/Toast";
 import Colors from "../../shared/constants/Colors";
+import DialogClass from "./../../shared/components/Dialog";
 
 export default class ProviderProfile extends React.Component {
+  dialog = new DialogClass();
   toast = new Toast();
   state = {
     text: "",
-    isEdit: false
+    isEdit: false,
+    isShow: false
   };
 
   onEdit = () => {
@@ -16,8 +19,9 @@ export default class ProviderProfile extends React.Component {
   };
 
   onSave = () => {
-    this.setState({ isEdit: false });
-    this.toast.showToast();
+    this.setState({ isEdit: false, isShow: true });
+    // this.dialog._showDialog();
+    // this.toast.showToast('Profile saved!');
   };
 
   _goBack = () => console.log("Went back");
@@ -81,6 +85,7 @@ export default class ProviderProfile extends React.Component {
           />
         </View>
         {this.renderFabBtn()}
+        <DialogClass show={this.state.isShow} message={'Profile saved!'} />
       </View>
     );
   }
