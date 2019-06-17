@@ -1,8 +1,8 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import React from "react";
+import { StyleSheet } from "react-native";
+import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
 
-import ProviderAppNavigator from './components/providers/ProviderAppNavigator';
+import ProviderAppNavigator from "./components/providers/ProviderAppNavigator";
 
 const theme = {
   ...DefaultTheme,
