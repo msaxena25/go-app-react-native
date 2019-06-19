@@ -6,7 +6,6 @@ import Colors from "../../shared/constants/Colors";
 import DialogClass from "./../../shared/components/Dialog";
 
 export default class ProviderProfile extends React.Component {
-  //dialog = new DialogClass();
   toast = new Toast();
   state = {
     text: "",
@@ -20,8 +19,6 @@ export default class ProviderProfile extends React.Component {
 
   onSave = () => {
     this.setState({ isEdit: false, isShow: true });
-    // this.dialog._showDialog();
-    // this.toast.showToast('Profile saved!');
   };
 
   _goBack = () => console.log("Went back");

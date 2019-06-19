@@ -18,3 +18,28 @@ import renderIf from "render-if";
             onPress={() => this.onEdit()}
           />
         )} 
+
+
+
+         <View >
+        <Appbar.Header style={styles.header}>
+          {/* <Appbar.BackAction onPress={this._goBack} /> */}
+          <Appbar.Content title="Services" subtitle="" />
+          <Appbar.Action icon="search" onPress={this._onSearch} />
+          <Appbar.Action icon="more-vert" onPress={this._onMore} />
+        </Appbar.Header>
+
+        <View>
+          <Picker
+            selectedValue={this.state.service}
+            onValueChange={this.updateUser}
+          >
+            <Picker.Item label="Steve" value="steve" />
+            <Picker.Item label="Ellen" value="ellen" />
+            <Picker.Item label="Maria" value="maria" />
+          </Picker>
+          {/* <Text style={styles.text}>{this.state.service}</Text> */}
+         
+        </View>
+        <FAB style={styles.fab} icon="add" onPress={() => this.onAdd()} />
+      </View>
